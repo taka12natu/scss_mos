@@ -3,3 +3,182 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  background-color: white;
+  width: 100%;
+}
+.container{
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 30px;
+  background-color: beige;
+}
+.header{
+  background-color: blue;
+  height: 60px;
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  & .header_logo{
+    height: 100%;
+    background-color: brown;
+    & img{
+      height: 60px;
+      width: 100%;
+    }
+  }
+  & .menu_box{
+    background-color: cadetblue;
+  }
+  & ul{
+    display: flex;
+    list-style: none;
+    font-size: 14px;
+    & li{
+      margin: 0 10px;
+      line-height: 60px;
+    }
+  }
+}
+
+.top_container{
+  padding: 25px 0;
+  & .breadcrumb{
+    list-style: none;
+    font-size: 12px;
+    & li{
+      display: inline-block;
+      &::after{
+        content: ">";
+        padding: 0 3px;
+      }
+      &:last-child:after {
+        content: "";
+      }
+    }
+  }
+  & .main_visual{
+    height: auto;
+    width: 100%;
+  }
+}
+
+.menu_container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 25px auto;
+  & .menu_box{
+    width: 30%;
+    background-color: aqua;
+    margin: 20px 0;
+    text-align: center;
+    & img{
+      width: 100%;
+      height: auto;
+    }
+    & .menu_name{
+      font-size: 16px;
+      text-align: right;
+    }
+    & .menu_price{
+      font-size: 12px;
+      text-align: right;
+    }
+  }
+}
+
+.link_container{
+  background-color: cadetblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 14px;
+  padding: 0 20%;
+  margin: 25px auto;
+  & .link_box{
+    width: 40%;
+    margin: 10px 5%;
+    padding: 10px 0;
+    background-color: coral;
+    text-align: center;
+  }
+}
+
+.shop_info{
+  display: flex;
+  justify-content: center;
+  margin: 25px auto;
+  & .shop_map{
+    width: 40%;
+    & img{
+      width: auto;
+      height: 200px;
+    }
+  }
+  & .shop_text{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: chartreuse;
+    padding-left: 5%;
+    &_name{
+      font-size: 16px;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+    &_address{
+      font-size: 14px;
+    }
+    &_link{
+      font-size: 12px;
+      &::after{
+        content: "👇";
+      }
+    }
+  }
+}
+
+.footer{
+  background-color: aqua;
+  height: auto;
+  margin: 25px auto;
+  &_menu{
+    background-color: beige;
+    display: flex;
+    &_logo{
+      width: 20%;
+      & img{
+        height: 100px;
+        width: auto;
+      }
+    }
+    & .category_container{
+      width: 70%;
+      margin: 0 auto;
+      background-color: burlywood;
+      display: flex;
+      justify-content: space-between;
+      & .category_box{
+        width: 100%;
+        & .category_title{
+          font-size: 16px;
+        }
+        & .category_list{
+          list-style: none;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  &_link{
+    background-color: chocolate;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    width: 80%; 
+    margin: 0 auto;
+  }
+}
