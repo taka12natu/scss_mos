@@ -17,7 +17,7 @@ sliderSetting();
 //スマホメニューボタン
 $(function(){
   $('.menu_btn').on('click', function(){
-    $('.menu_box').toggleClass('is-active');
+    $('.menu_list_box').toggleClass('is-active');
     $('.menu_btn').toggleClass('is-close');
 
   });

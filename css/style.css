@@ -34,7 +34,7 @@ body {
   width: auto;
 }
 
-.header .menu_box {
+.header .menu_list_box {
   width: 60%;
   display: flex;
   justify-content: space-around;
@@ -43,23 +43,23 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  .header .menu_box {
+  .header .menu_list_box {
     display: none;
   }
 }
 
-.header .menu_box .menu_item {
+.header .menu_list_box .menu_list_item {
   width: 20%;
   text-align: center;
   line-height: 60px;
 }
 
-.header .menu_box .menu_item:hover {
+.header .menu_list_box .menu_list_item:hover {
   cursor: auto;
   border: 1px solid green;
 }
 
-.header .menu_box .menu_item a {
+.header .menu_list_box .menu_list_item a {
   text-decoration: none;
   display: block;
   color: black;
@@ -84,6 +84,7 @@ body {
 
 .menu_btn::after {
   font-family: 'Font Awesome 5 Free';
+  color: black;
   font-weight: 900;
   font-size: 1.6rem;
   content: '\f0c9';
@@ -105,6 +106,7 @@ body {
 
 .is-close::after {
   content: '\f00d';
+  color: black;
 }
 
 /* ハンバーガーメニュー　ここまで */
@@ -119,6 +121,7 @@ body {
 .top_container .breadcrumb {
   list-style: none;
   font-size: 12px;
+  padding: 5px 10px;
 }
 
 .top_container .breadcrumb li {
@@ -139,10 +142,22 @@ body {
   padding: 0 30px;
 }
 
+@media only screen and (max-width: 768px) {
+  .top_container .main_visual {
+    height: 200px;
+  }
+}
+
 .top_container .main_visual_img {
   width: 100%;
   height: 400px;
   object-fit: cover;
+}
+
+@media only screen and (max-width: 768px) {
+  .top_container .main_visual_img {
+    height: 200px;
+  }
 }
 
 /* slider */
