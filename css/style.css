@@ -267,7 +267,7 @@ body {
 
 @media only screen and (max-width: 768px) {
   .link_container .link_box {
-    width: 50%;
+    width: 70%;
     margin: 10px auto;
   }
 }
