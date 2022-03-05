@@ -38,6 +38,9 @@ body{
   }
     & .menu_list_item{
       width: 20%;
+      @include media(md){
+        width: 90%;
+      }
       text-align: center;
       line-height: 60px;
       &:hover{
@@ -78,11 +81,10 @@ body{
   background-color: beige;
   width: 100vw!important;
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 100;
   justify-content: unset!important;
-  & .menu_item{
-    width: 90%!important;
-  }
 }
 .is-close::after{
   content: '\f00d';

@@ -54,6 +54,12 @@ body {
   line-height: 60px;
 }
 
+@media only screen and (max-width: 768px) {
+  .header .menu_list_box .menu_list_item {
+    width: 90%;
+  }
+}
+
 .header .menu_list_box .menu_list_item:hover {
   cursor: auto;
   border: 1px solid green;
@@ -96,12 +102,10 @@ body {
   background-color: beige;
   width: 100vw !important;
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 100;
   justify-content: unset !important;
-}
-
-.is-active .menu_item {
-  width: 90% !important;
 }
 
 .is-close::after {
