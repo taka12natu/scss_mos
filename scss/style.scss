@@ -359,7 +359,9 @@ body{
           list-style: none;
           font-size: 14px;
           padding-bottom: 5px;
-          display: none;
+          @include media(md){
+            display: none;
+          }
         }
       }
     }

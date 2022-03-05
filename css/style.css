@@ -464,7 +464,12 @@ body {
   list-style: none;
   font-size: 14px;
   padding-bottom: 5px;
-  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .footer_menu .category_container .category_box .category_list {
+    display: none;
+  }
 }
 
 .footer_link {
