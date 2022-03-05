@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "游明朝", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", "MS PMincho", serif;
 }
 
 body {
@@ -14,45 +15,60 @@ body {
   width: 100%;
   max-width: 980px;
   margin: 0 auto;
-  padding: 0 30px;
-  background-color: beige;
+  /*  padding: 0 30px; */
 }
 
 .header {
-  background-color: blue;
   height: 60px;
-  margin: 25px 0;
   display: flex;
-  justify-content: space-between;
+  /*   justify-content: space-evenly;
+ */
 }
 
 .header .header_logo {
   height: 100%;
-  background-color: brown;
+  width: 20%;
 }
 
 .header .header_logo img {
   height: 60px;
-  width: 100%;
+  width: auto;
 }
 
 .header .menu_box {
-  background-color: cadetblue;
+  width: 60%;
 }
 
 .header ul {
   display: flex;
+  justify-content: space-around;
   list-style: none;
   font-size: 14px;
 }
 
 .header ul li {
-  margin: 0 10px;
+  width: 20%;
+  text-align: center;
   line-height: 60px;
 }
 
+.header ul li:hover {
+  cursor: auto;
+  border: 1px solid green;
+}
+
+.header ul li a {
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.main {
+  background-color: #fff9f0;
+}
+
 .top_container {
-  padding: 25px 0;
+  padding: 25px 0px;
 }
 
 .top_container .breadcrumb {
@@ -74,8 +90,48 @@ body {
 }
 
 .top_container .main_visual {
-  height: auto;
+  height: 400px;
+  padding: 0 30px;
+}
+
+.top_container .main_visual_img {
   width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* slider */
+/* デフォルト矢印を非表示 */
+.slick-arrow {
+  z-index: 2 !important;
+}
+
+.slick-arrow:before {
+  content: "" !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* カスタム矢印を表示 */
+.slider-arrow {
+  font-size: 32px;
+  color: #e79a36;
+}
+
+.slick-next {
+  right: 0px !important;
+}
+
+.slick-prev {
+  left: 0px !important;
+}
+
+.slick-dots {
+  position: relative !important;
+  bottom: 0 !important;
 }
 
 .menu_container {
@@ -83,18 +139,26 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 25px auto;
+  padding: 0 30px;
 }
 
 .menu_container .menu_box {
   width: 30%;
-  background-color: aqua;
   margin: 20px 0;
   text-align: center;
+  transition-duration: 0.3s;
+}
+
+.menu_container .menu_box:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition-duration: 0.3s;
 }
 
 .menu_container .menu_box img {
   width: 100%;
   height: auto;
+  border-radius: 2%;
 }
 
 .menu_container .menu_box .menu_name {
@@ -108,7 +172,6 @@ body {
 }
 
 .link_container {
-  background-color: cadetblue;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -120,24 +183,63 @@ body {
 .link_container .link_box {
   width: 40%;
   margin: 10px 5%;
-  padding: 10px 0;
+  border-radius: 5%;
   background-color: coral;
   text-align: center;
+}
+
+.link_container .link_box:hover {
+  cursor: pointer;
+  background-color: #ffd4c4;
+}
+
+.link_container .link_box .link_text {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  display: block;
+  padding: 10px 0;
+}
+
+.link_container .link_box .link_arrow::after {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f054';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -8px;
+}
+
+.link_container .link_box .link_icon::after {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f1c1';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -8px;
 }
 
 .shop_info {
   display: flex;
   justify-content: center;
-  margin: 25px auto;
+  margin: 0px auto;
+  padding: 25px 0;
+  height: 350px;
 }
 
 .shop_info .shop_map {
-  width: 40%;
+  width: 50%;
+  position: relative;
 }
 
-.shop_info .shop_map img {
-  width: auto;
-  height: 200px;
+.shop_info .shop_map iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .shop_info .shop_text {
@@ -145,14 +247,13 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: chartreuse;
   padding-left: 5%;
 }
 
 .shop_info .shop_text_name {
   font-size: 16px;
   font-weight: bold;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .shop_info .shop_text_address {
@@ -161,25 +262,35 @@ body {
 
 .shop_info .shop_text_link {
   font-size: 12px;
+  margin-left: 40px;
+  position: relative;
+  text-decoration: none;
 }
 
-.shop_info .shop_text_link::after {
-  content: "👇";
+.shop_info .shop_text_link::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f054';
+  position: absolute;
+  top: 50%;
+  left: -13px;
+  margin-top: -6px;
 }
 
 .footer {
-  background-color: aqua;
+  background-color: burlywood;
   height: auto;
-  margin: 25px auto;
+  margin: 0px auto;
+  padding: 25px 30px;
 }
 
 .footer_menu {
-  background-color: beige;
   display: flex;
 }
 
 .footer_menu_logo {
   width: 20%;
+  text-align: center;
 }
 
 .footer_menu_logo img {
@@ -190,7 +301,6 @@ body {
 .footer_menu .category_container {
   width: 70%;
   margin: 0 auto;
-  background-color: burlywood;
   display: flex;
   justify-content: space-between;
 }
@@ -201,19 +311,31 @@ body {
 
 .footer_menu .category_container .category_box .category_title {
   font-size: 16px;
+  padding-bottom: 10px;
 }
 
 .footer_menu .category_container .category_box .category_list {
   list-style: none;
   font-size: 14px;
+  padding-bottom: 5px;
 }
 
 .footer_link {
-  background-color: chocolate;
+  padding-top: 20px;
   display: flex;
   list-style: none;
   justify-content: space-between;
   width: 80%;
   margin: 0 auto;
+}
+
+.footer_link a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer_link a:hover {
+  cursor: pointer;
+  color: gray;
 }
 /*# sourceMappingURL=style.css.map */
