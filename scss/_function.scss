@@ -1,0 +1,10 @@
+/* ブレークポイントの設定 */
+$breakpoints:(
+    sm :"only screen and (max-width:599px)",
+    md :"only screen and (max-width:768px)",
+);
+@mixin media($breakpoint){
+  @media #{map-get($breakpoints,$breakpoint)}{
+      @content;
+  }
+}

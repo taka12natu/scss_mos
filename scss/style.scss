@@ -1,4 +1,4 @@
-
+@import './function.scss';
 
 * {
   margin: 0;
@@ -14,13 +14,12 @@ body{
   width: 100%;
   max-width: 980px;
   margin: 0 auto;
- /*  padding: 0 30px; */
 }
 .header{
   height: 60px;
+  margin: 10px 15px;
   display: flex;
-/*   justify-content: space-evenly;
- */  & .header_logo{
+  & .header_logo{
     height: 100%;
     width: 20%;
     & img{
@@ -30,13 +29,14 @@ body{
   }
   & .menu_box{
     width: 60%;
-  }
-  & ul{
     display: flex;
     justify-content: space-around;
     list-style: none;
     font-size: 14px;
-    & li{
+    @include media(md){
+      display: none;
+  }
+    & .menu_item{
       width: 20%;
       text-align: center;
       line-height: 60px;
@@ -52,6 +52,42 @@ body{
     }
   }
 }
+/* ハンバーガーメニュー */
+.menu_btn{
+  display: none;
+  @include media(md){
+    display: block;
+    border: none;
+    background-color:rgba(0,0,0,0);
+    position: absolute;
+    z-index: 200;
+    top: 30px;
+    right: 20px;
+  }
+  &::after{
+    font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 1.6rem;
+        content: '\f0c9';
+  }
+}
+.is-active{
+  display: flex!important;
+  flex-direction: column;
+  background-color: beige;
+  width: 100vw!important;
+  position: absolute;
+  z-index: 100;
+  justify-content: unset!important;
+  & .menu_item{
+    width: 90%!important;
+  }
+}
+.is-close::after{
+  content: '\f00d';
+}
+/* ハンバーガーメニュー　ここまで */
+
 .main{
   background-color: #fff9f0;
 }
@@ -109,6 +145,7 @@ body{
   position: relative!important;
   bottom: 0!important;
 }
+/* slider　ここまで */
 
 .menu_container{
   display: flex;
@@ -118,6 +155,9 @@ body{
   padding: 0 30px;
   & .menu_box{
     width: 30%;
+    @include media(md){
+      width: 47%;
+    }
     margin: 20px 0;
     text-align: center;
     transition-duration: 0.3s;
@@ -144,6 +184,9 @@ body{
 
 .link_container{
   display: flex;
+  @include media(md){
+    display: block;
+  }
   flex-wrap: wrap;
   justify-content: space-around;
   font-size: 14px;
@@ -152,6 +195,10 @@ body{
   & .link_box{
     width: 40%;
     margin: 10px 5%;
+    @include media(md){
+      width: 50%;
+      margin: 10px auto;
+    }
     border-radius: 5%;
     background-color: coral;
     text-align: center;
@@ -193,9 +240,18 @@ body{
   margin: 0px auto;
   padding: 25px 0;
   height: 350px;
+  @include media(md){
+    display: block;
+    height: auto;
+  }
   & .shop_map{
     width: 50%;
     position: relative;
+    @include media(md){
+      width: 80%;
+      margin: 0 auto;
+      height: 300px;
+    }
     & iframe{
       position: absolute;
       left: 0;
@@ -206,6 +262,12 @@ body{
   }
   & .shop_text{
     width: 40%;
+    @include media(md){
+      width: 80%;
+      margin: 0 auto;
+      padding-top: 50px;
+      text-align: center;
+    }
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -221,6 +283,9 @@ body{
     &_link{
       font-size: 12px;
       margin-left: 40px;
+      @include media(md){
+        margin-left: 0px;      
+      }
       position: relative;
       text-decoration: none;
       &::before{
@@ -228,6 +293,9 @@ body{
         font-weight: 900;
         content: '\f054';
         position: absolute;
+        @include media(md){
+          position: unset;
+        }
         top: 50%;
         left: -13px;
         margin-top: -6px;
@@ -246,6 +314,9 @@ body{
     &_logo{
       width: 20%;
       text-align: center;
+      @include media(md){
+        display: none;
+      }
       & img{
         height: 100px;
         width: auto;
@@ -255,17 +326,29 @@ body{
       width: 70%;
       margin: 0 auto;
       display: flex;
+      @include media(md){
+        display: block;
+        width: 100%;
+      }
       justify-content: space-between;
       & .category_box{
         width: 100%;
+        @include media(md){
+          border-bottom: 1px solid gray;
+        }
         & .category_title{
           font-size: 16px;
           padding-bottom: 10px;
+          @include media(md){
+            padding-bottom: 0px;
+            padding-top: 10px;
+          }
         }
         & .category_list{
           list-style: none;
           font-size: 14px;
           padding-bottom: 5px;
+          display: none;
         }
       }
     }
@@ -277,14 +360,24 @@ body{
     justify-content: space-between;
     width: 80%; 
     margin: 0 auto;
-    & a{
-      text-decoration: none;
-      color: black;
-      &:hover{
-        cursor: pointer;
-        color: gray;
+    @include media(md){
+      display: block;
+      width: 100%;
+      padding-top: 0px;
+    }
+    &_list{
+      @include media(md){
+        border-bottom: 1px solid gray;
+        padding-top: 10px;
+      }
+      & a{
+        text-decoration: none;
+        color: black;
+        &:hover{
+          cursor: pointer;
+          color: gray;
+        }
       }
     }
   }
 }
-
